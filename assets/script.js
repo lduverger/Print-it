@@ -20,17 +20,13 @@ const slides = [
 //variable
 let arrowRight= document.querySelector(".arrow_right");
 let arrowLeft = document.querySelector(".arrow_left");
-let divDots = document.querySelector(".dots")
+let divDots = document.querySelector(".dots");
+let bannerImg = document.querySelector(".banner-img");
+let bannerText = document.querySelector("#banner p");
+
 let numberBulletPoint = slides.length;
 let activeBP = 0;
 let arrayDot;
-
-
-//verification
-console.log(arrowRight);
-console.log(arrowLeft);
-console.log(divDots);
-console.log(numberBulletPoint);
 
 
 //loop for create BulletPoint
@@ -41,16 +37,60 @@ for(i=0; i<numberBulletPoint; i++){
 }
 
 arrayDot = document.querySelectorAll(".dots .dot");
-arrayDot[0].classList.add("dot_selected");
+
+
+//verification
+console.log(arrowRight);
+console.log(arrowLeft);
+console.log(divDots);
+console.log(numberBulletPoint);
 console.log(arrayDot);
+console.log(bannerImg);
+console.log(bannerText);
+
+
+//start on the first dot
+arrayDot[activeBP].classList.add("dot_selected");
 
 
 
-arrowRight.addEventListener("click", () => {
-	console.log("Click on right arrow")
+
+arrowRight.addEventListener("click", (event) => {
+	console.log("Click on right arrow");
+	changeBanner(event);
+	/*arrayDot[activeBP].classList.remove("dot_selected");
+	activeBP++;
+	arrayDot[activeBP].classList.add("dot_selected");
+	bannerImg.src = "./assets/images/slideshow/" + slides[activeBP].image;
+	bannerText.innerHTML = slides[activeBP].tagLine;*/
+
+
+
+
 });
 
 
-arrowLeft.addEventListener("click", () => {
-	console.log("Click on left arrow")
+arrowLeft.addEventListener("click", (event) => {
+	console.log("Click on left arrow");
+	changeBanner(event);
+	/*arrayDot[activeBP].classList.remove("dot_selected");
+	activeBP--;
+	arrayDot[activeBP].classList.add("dot_selected");*/
+
 });
+
+function changeBanner(event){
+	console.log(event);
+	console.log(event.target === arrowRight);
+
+	arrayDot[activeBP].classList.remove("dot_selected");
+	if(event.target === arrowRight){
+		activeBP++;
+	}
+	else{
+		activeBP--;
+	}
+	arrayDot[activeBP].classList.add("dot_selected");
+	bannerImg.src = "./assets/images/slideshow/" + slides[activeBP].image;
+	bannerText.innerHTML = slides[activeBP].tagLine;
+}
