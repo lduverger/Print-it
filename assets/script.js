@@ -16,3 +16,41 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+//variable
+let arrowRight= document.querySelector(".arrow_right");
+let arrowLeft = document.querySelector(".arrow_left");
+let divDots = document.querySelector(".dots")
+let numberBulletPoint = slides.length;
+let activeBP = 0;
+let arrayDot;
+
+
+//verification
+console.log(arrowRight);
+console.log(arrowLeft);
+console.log(divDots);
+console.log(numberBulletPoint);
+
+
+//loop for create BulletPoint
+for(i=0; i<numberBulletPoint; i++){
+	let div = document.createElement("div");
+	div.classList.add("dot");
+	divDots.appendChild(div);
+}
+
+arrayDot = document.querySelectorAll(".dots .dot");
+arrayDot[0].classList.add("dot_selected");
+console.log(arrayDot);
+
+
+
+arrowRight.addEventListener("click", () => {
+	console.log("Click on right arrow")
+});
+
+
+arrowLeft.addEventListener("click", () => {
+	console.log("Click on left arrow")
+});
