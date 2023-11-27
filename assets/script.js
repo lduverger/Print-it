@@ -76,7 +76,7 @@ function changeBanner(event) {
 	arrayDot[activeBP].classList.remove("dot_selected");
 	if (event.target === arrowRight) {
 		activeBP++;
-		if (activeBP > 3) {
+		if (activeBP > numberBulletPoint - 1) {
 			activeBP = 0;
 		}
 	}
